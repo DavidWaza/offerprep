@@ -181,7 +181,7 @@ const BookingSection = () => {
                 onClick={handleSubmit}
                 className="w-full bg-[#A78BFA] text-white font-semibold py-4 px-6 rounded-xl hover:bg-[#8B5CF6] transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
               >
-                Submit Booking Request
+                Submit Request
                 <Send className="w-5 h-5" />
               </button>
             </div>

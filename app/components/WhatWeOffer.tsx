@@ -72,14 +72,14 @@ const WhatWeOffer = () => {
               transform: `translateY(${scrollY * 0.15}px)`,
             }}
           >
-            <div className="flex items-start gap-8">
+            <div className="md:flex items-start gap-8">
               <div className="shrink-0">
-                <div className="w-20 h-20 rounded-2xl bg-linear-to-br from-[#14325A] to-[#2A4A7A] flex items-center justify-center shadow-lg">
+                <div className="w-15 h-15 md:w-20 md:h-20 rounded-2xl bg-linear-to-br from-[#14325A] to-[#2A4A7A] flex items-center justify-center shadow-lg">
                   <TrendingUp className="w-10 h-10 text-white" />
                 </div>
               </div>
               <div>
-                <h3 className="text-3xl font-extrabold text-[#14325A] mb-4 uppercase">
+                <h3 className="text-2xl md:text-3xl font-extrabold text-[#14325A] mb-4 uppercase mt-2 md:mt-0">
                   Key Value Proposition
                 </h3>
                 <p className="text-xl text-[#3A3A3A] leading-relaxed">
@@ -111,10 +111,10 @@ const WhatWeOffer = () => {
                 </div>
               </div>
               <div className="flex-1">
-                <h3 className="text-3xl font-extrabold text-[#14325A] mb-5 uppercase">
+                <h3 className="text-2xl md:text-3xl font-extrabold text-[#14325A] mb-5 uppercase">
                   Core Offering
                 </h3>
-                <p className="text-[#14325A]/90 leading-relaxed text-xl">
+                <p className="text-[#14325A]/90 leading-relaxed text-lg md:text-xl">
                   You don&apos;t just learn how to answer interview questions. You learn what hiring managers are really evaluating when they ask them.
                 </p>
               </div>
@@ -135,10 +135,10 @@ const WhatWeOffer = () => {
                 </div>
               </div>
               <div className="flex-1">
-                <h3 className="text-3xl font-extrabold text-[#14325A] mb-5 uppercase">
+                <h3 className="text-2xl md:text-3xl  font-extrabold text-[#14325A] mb-5 uppercase">
                   Personalized Feedback
                 </h3>
-                <p className="text-[#14325A]/90 leading-relaxed text-xl">
+                <p className="text-[#14325A]/90 leading-relaxed text-lg md:text-xl">
                   Every session is tailored to your specific role, industry, and interview style. You get actionable feedback you can implement immediately.
                 </p>
               </div>
@@ -159,10 +159,10 @@ const WhatWeOffer = () => {
                 </div>
               </div>
               <div className="flex-1">
-                <h3 className="text-3xl font-extrabold text-[#14325A] mb-5 uppercase">
+                <h3 className="text-2xl md:text-3xl font-extrabold text-[#14325A] mb-5 uppercase">
                   Affordable Tiers
                 </h3>
-                <p className="text-[#14325A]/90 leading-relaxed text-xl">
+                <p className="text-[#14325A]/90 leading-relaxed text-lg md:text-xl">
                   We offer options that fit your needs and budget. Invest in your career without breaking the bank.
                 </p>
               </div>

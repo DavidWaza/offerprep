@@ -100,7 +100,7 @@ const PricingPlans = () => {
               {/* Popular Badge */}
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <div className="bg-[#F5A623] text-white px-6 py-2 rounded-full text-sm font-semibold flex items-center gap-2 shadow-lg">
+                  <div className="bg-[#F5A623] text-white px-6 py-2 rounded-full text-sm font-semibold flex items-center gap-2 shadow-lg text-nowrap">
                     <Sparkles className="w-4 h-4" />
                     Most Popular
                   </div>
