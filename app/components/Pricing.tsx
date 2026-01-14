@@ -1,72 +1,81 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { Check, DollarSign, Sparkles } from 'lucide-react';
-import { CurrencyNgn } from '@phosphor-icons/react/dist/ssr';
+import React from "react";
+import { Check, DollarSign, Sparkles } from "lucide-react";
+import { CurrencyNgn } from "@phosphor-icons/react/dist/ssr";
 
 const plans = [
   {
     id: 1,
-    name: 'Starter Plan',
-    number: '1',
-    amount: '4,000',
-    DollarAmount: '$2.81',
-    description: '60-minute focused session to boost your confidence and fix critical interview mistakes fast.',
+    name: "Starter Plan",
+    number: "1",
+    amount: "4,500",
+    DollarAmount: "$2.81",
+    description:
+      "60-minute focused session to boost your confidence and fix critical interview mistakes fast.",
     features: [
-      '30-min mock interview',
-      '15-min feedback session',
-      'Written summary of strengths',
-      'Actionable improvement plan'
+      "30-min mock interview",
+      "15-min feedback session",
+      "Written summary of strengths",
+      "Actionable improvement plan",
     ],
-    borderColor: 'border-[#A78BFA]',
-    numberColor: 'text-[#A78BFA]',
-    buttonStyle: 'border-[#A78BFA] text-[#A78BFA] hover:bg-[#A78BFA] hover:text-white',
-    popular: false
+    borderColor: "border-[#A78BFA]",
+    numberColor: "text-[#A78BFA]",
+    buttonStyle:
+      "border-[#A78BFA] text-[#A78BFA] hover:bg-[#A78BFA] hover:text-white",
+    popular: false,
   },
   {
     id: 2,
-    name: 'Pro Plan',
-    number: '2',
-    amount: '7,500',
-    DollarAmount: '$5.27',
-    description: 'A comprehensive mock interview paired with detailed coaching, practical HR insights, and a follow-up session.',
+    name: "Pro Plan",
+    number: "2",
+    amount: "7,500",
+    DollarAmount: "$5.27",
+    description:
+      "A comprehensive mock interview paired with detailed coaching, practical HR insights, and a follow-up session.",
     features: [
-      '45-min full mock interview',
-      '30-min detailed coaching',
-      'HR perspective insights',
-      '5-7 page feedback document',
-      'A follow-up mock interview session'
+      "45-min full mock interview",
+      "30-min detailed coaching",
+      "HR perspective insights",
+      "Detailed feedback document",
+      "A follow-up mock interview session",
     ],
-    borderColor: 'border-[#F5A623]',
-    numberColor: 'text-[#F5A623]',
-    buttonStyle: 'bg-[#F5A623] text-white hover:bg-[#8B5CF6]',
-    popular: true
+    borderColor: "border-[#F5A623]",
+    numberColor: "text-[#F5A623]",
+    buttonStyle: "bg-[#F5A623] text-white hover:bg-[#8B5CF6]",
+    popular: true,
   },
   {
     id: 3,
-    name: 'Premium Plan',
-    number: '3',
-    amount: '10,000',
-    DollarAmount: '$7.03',
-    description: 'Three coaching sessions covering end-to-end interview preparation, including CV review and career coaching.',
+    name: "Premium Plan",
+    number: "3",
+    amount: "10,000",
+    DollarAmount: "$7.03",
+    description:
+      "Three coaching sessions covering end-to-end interview preparation, including CV review and career coaching.",
     features: [
-      '3 comprehensive sessions',
-      'CV review and restructuring',
-      'Strategic preparation',
-      'Salary negotiation coaching'
+      "3 comprehensive sessions",
+      "CV review and restructuring",
+      "Strategic preparation",
+      "Salary negotiation coaching",
+      "HR Insights"
     ],
-    borderColor: 'border-[#A78BFA]',
-    numberColor: 'text-[#A78BFA]',
-    buttonStyle: 'border-[#A78BFA] text-[#A78BFA] hover:bg-[#A78BFA] hover:text-white',
-    popular: false
-  }
+    borderColor: "border-[#A78BFA]",
+    numberColor: "text-[#A78BFA]",
+    buttonStyle:
+      "border-[#A78BFA] text-[#A78BFA] hover:bg-[#A78BFA] hover:text-white",
+    popular: false,
+  },
 ];
 
 const PricingPlans = () => {
+  const scrollToBooking = () => {
+    document.getElementById("booking")?.scrollIntoView({ behavior: "smooth" });
+  };
   return (
-    <section className="relative overflow-hidden py-20 px-6">
+    <section className="relative overflow-hidden py-20 px-6" id="pricing">
       {/* Background with subtle gradient */}
-      <div 
+      <div
         className="absolute inset-0"
         style={{
           background: `
@@ -75,7 +84,7 @@ const PricingPlans = () => {
               #F5F5F5 0%,
               #FAFAFA 100%
             )
-          `
+          `,
         }}
       />
 
@@ -117,10 +126,11 @@ const PricingPlans = () => {
                     {plan.name}
                   </h3>
                 </div>
-                  <h3 className="ml-auto text-2xl font-extrabold text-[#14325A] text-right pt-2 pb-4 flex justify-end items-center">
-                    <CurrencyNgn size={25} weight='bold'/>
-                    {plan.amount} ~ <span className='text-lg'>{(plan.DollarAmount)}</span>
-                    </h3>
+                <h3 className="ml-auto text-2xl font-extrabold text-[#14325A] text-right pt-2 pb-4 flex justify-end items-center">
+                  <CurrencyNgn size={25} weight="bold" />
+                  {plan.amount} ~{" "}
+                  <span className="text-lg">{plan.DollarAmount}</span>
+                </h3>
                 <p className="text-[#6B7280] leading-relaxed">
                   {plan.description}
                 </p>
@@ -139,8 +149,9 @@ const PricingPlans = () => {
               {/* CTA Button */}
               <button
                 className={`w-full py-3 px-6 rounded-xl font-semibold border-2 transition-all duration-300 ${plan.buttonStyle}`}
+                onClick={scrollToBooking}
               >
-                Get Started
+                Book a session
               </button>
             </div>
           ))}

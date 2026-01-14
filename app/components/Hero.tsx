@@ -13,7 +13,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen overflow-hidden">
+    <section className="relative min-h-screen overflow-hidden" id="home">
       {/* === LINEAR GRADIENT BACKGROUND === */}
       <div
         className="absolute inset-0"

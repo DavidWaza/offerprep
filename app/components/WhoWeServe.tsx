@@ -40,7 +40,7 @@ const cardVariants = {
 
 const WhoWeServe = () => {
   return (
-    <section className="relative overflow-hidden py-24 px-6">
+    <section className="relative overflow-hidden py-24 px-6" id='services'>
       {/* === DOMINANT BACKGROUND === */}
       <div className="absolute inset-0 bg-[#FEF7F0]" />
 

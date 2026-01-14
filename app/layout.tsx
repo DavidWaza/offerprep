@@ -9,7 +9,6 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-
 const montserrat = Montserrat({
   variable: "--font-montserrat",
   subsets: ["latin"],
@@ -17,7 +16,8 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title: "Offerprep.",
-  description: "Ace Your Interviews with Expert Coaching and Personalized Feedback",
+  description:
+    "Ace Your Interviews with Expert Coaching and Personalized Feedback",
 };
 
 export default function RootLayout({
@@ -27,11 +27,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.variable} ${montserrat.className} antialiased`}
-      >
+      <body className={`${inter.variable} ${montserrat.className} antialiased`}>
         <Header />
-  <LoadingOverlay />
+        <LoadingOverlay />
         {children}
       </body>
     </html>

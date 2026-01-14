@@ -55,7 +55,7 @@ const WhatWeOffer = () => {
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Sticky Header with Parallax */}
         <div 
-          className="sticky top-20 mb-32 transition-all duration-300"
+          className="sticky top-10 mb-32 transition-all duration-300"
           style={{
             opacity: headerOpacity,
             transform: `scale(${headerScale}) translateY(${scrollY * 0.2}px)`,
@@ -80,7 +80,7 @@ const WhatWeOffer = () => {
               </div>
               <div>
                 <h3 className="text-2xl md:text-3xl font-extrabold text-[#14325A] mb-4 uppercase mt-2 md:mt-0">
-                  Key Value Proposition
+                  Real Interview Experience
                 </h3>
                 <p className="text-xl text-[#3A3A3A] leading-relaxed">
                   We help candidates gain real interview experience, improve how they answer questions, and build the confidence needed to secure job offers.
@@ -112,10 +112,11 @@ const WhatWeOffer = () => {
               </div>
               <div className="flex-1">
                 <h3 className="text-2xl md:text-3xl font-extrabold text-[#14325A] mb-5 uppercase">
-                  Core Offering
+                  Hiring-Manager Insight
                 </h3>
                 <p className="text-[#14325A]/90 leading-relaxed text-lg md:text-xl">
-                  You don&apos;t just learn how to answer interview questions. You learn what hiring managers are really evaluating when they ask them.
+                 You don&apos;t just learn how to answer interview questions. . Understand what hiring managers are truly evaluating and how to position your answers to meet their expectations.
+
                 </p>
               </div>
             </div>

@@ -1,36 +1,38 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { Calendar, Clock, RotateCcw, Send } from 'lucide-react';
+import React, { useState } from "react";
+import { Calendar, Clock, OctagonAlert, RotateCcw, Send } from "lucide-react";
 
 const BookingSection = () => {
   const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    phone: '',
-    package: '',
-    goals: ''
+    fullName: "",
+    email: "",
+    jobrole: "",
+    company: "",
+    package: "",
+    jobDescription: "",
+    goals: "",
   });
 
   const handleSubmit = () => {
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
     // Handle form submission logic here
   };
 
   const handleChange = (field: string, value: string) => {
     setFormData({
       ...formData,
-      [field]: value
+      [field]: value,
     });
   };
 
   return (
-    <section className="relative overflow-hidden py-20 px-6">
+    <section className="relative overflow-hidden py-20 px-6" id="booking">
       {/* Background */}
-      <div 
+      <div
         className="absolute inset-0"
         style={{
-          background: '#F5E6E0'
+          background: "#F5E6E0",
         }}
       />
 
@@ -43,7 +45,8 @@ const BookingSection = () => {
                 Ready to Crush That Interview?
               </h2>
               <p className="text-lg text-[#6B7280] leading-relaxed">
-                Book your session today and take the first step towards landing your dream job.
+                Book your session today and take the first step towards landing
+                your dream job.
               </p>
             </div>
 
@@ -59,7 +62,8 @@ const BookingSection = () => {
                     48-Hour Advance Booking
                   </h3>
                   <p className="text-[#6B7280] text-sm">
-                    This allows us time to review your information and prepare properly.
+                    This allows us time to review your information and prepare
+                    properly.
                   </p>
                 </div>
               </div>
@@ -74,7 +78,8 @@ const BookingSection = () => {
                     Flexible Scheduling
                   </h3>
                   <p className="text-[#6B7280] text-sm">
-                    Pick a date and time that works for you. We&apos;ll send confirmation to your inbox.
+                    Pick a date and time that works for you. We&apos;ll send
+                    confirmation to your inbox.
                   </p>
                 </div>
               </div>
@@ -89,9 +94,29 @@ const BookingSection = () => {
                     24-Hour Reschedule Policy
                   </h3>
                   <p className="text-[#6B7280] text-sm">
-                    Need to change your appointment? No problem with 24 hours notice.
+                    Need to change your appointment? No problem with 24 hours
+                    notice.
                   </p>
                 </div>
+              </div>
+              {/* DISCLAIMER */}
+              <div className="py-3">
+                <div className="flex items-center gap-1 py-2">
+                  <OctagonAlert fontWeight={800} size={27}className="text-amber-700"/>
+                  <h2 className="text-2xl font-extrabold uppercase text-gray-700">
+                    DISCLAIMER
+                  </h2>
+                </div>
+                <h3 className="font-semibold text-gray-700">
+                  If you’re preparing for a specific role or company, please
+                  include the company name and job description so we can tailor
+                  the session to your interview.
+                </h3>
+                <br />
+                <h3 className="font-semibold text-gray-700">
+                  If you’re practicing interviews in general, you can leave
+                  those fields blank.
+                </h3>
               </div>
             </div>
           </div>
@@ -111,7 +136,7 @@ const BookingSection = () => {
                 <input
                   type="text"
                   value={formData.fullName}
-                  onChange={(e) => handleChange('fullName', e.target.value)}
+                  onChange={(e) => handleChange("fullName", e.target.value)}
                   placeholder="John Doe"
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#A78BFA] focus:border-transparent transition-all"
                 />
@@ -125,22 +150,35 @@ const BookingSection = () => {
                 <input
                   type="email"
                   value={formData.email}
-                  onChange={(e) => handleChange('email', e.target.value)}
+                  onChange={(e) => handleChange("email", e.target.value)}
                   placeholder="john@example.com"
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#A78BFA] focus:border-transparent transition-all"
                 />
               </div>
 
-              {/* Phone Number */}
+              {/* Job Role */}
               <div>
                 <label className="block text-sm font-semibold text-[#14325A] mb-2">
-                  Phone Number
+                  Job Role
                 </label>
                 <input
                   type="tel"
-                  value={formData.phone}
-                  onChange={(e) => handleChange('phone', e.target.value)}
-                  placeholder="+1 (555) 000-0000"
+                  value={formData.jobrole}
+                  onChange={(e) => handleChange("jobrole", e.target.value)}
+                  placeholder="Software Developer"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#A78BFA] focus:border-transparent transition-all"
+                />
+              </div>
+              {/* Company */}
+              <div>
+                <label className="block text-sm font-semibold text-[#14325A] mb-2">
+                  Company
+                </label>
+                <input
+                  type="tel"
+                  value={formData.company}
+                  onChange={(e) => handleChange("company", e.target.value)}
+                  placeholder="Anthropic"
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#A78BFA] focus:border-transparent transition-all"
                 />
               </div>
@@ -152,7 +190,7 @@ const BookingSection = () => {
                 </label>
                 <select
                   value={formData.package}
-                  onChange={(e) => handleChange('package', e.target.value)}
+                  onChange={(e) => handleChange("package", e.target.value)}
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#A78BFA] focus:border-transparent transition-all appearance-none bg-white"
                 >
                   <option value="">Choose a package...</option>
@@ -162,14 +200,29 @@ const BookingSection = () => {
                 </select>
               </div>
 
+              {/* Job Desvription */}
+              <div>
+                <label className="block text-sm font-semibold text-[#14325A] mb-2">
+                  Job Description (optional)
+                </label>
+                <textarea
+                  value={formData.jobDescription}
+                  onChange={(e) =>
+                    handleChange("jobDescription", e.target.value)
+                  }
+                  placeholder="Add the company's job description you are interviewing for"
+                  rows={4}
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#A78BFA] focus:border-transparent transition-all resize-none"
+                />
+              </div>
               {/* Goals */}
               <div>
                 <label className="block text-sm font-semibold text-[#14325A] mb-2">
-                  Tell us about your goals (optional)
+                  What is your current goal? (optional)
                 </label>
                 <textarea
                   value={formData.goals}
-                  onChange={(e) => handleChange('goals', e.target.value)}
+                  onChange={(e) => handleChange("goals", e.target.value)}
                   placeholder="What role are you interviewing for? Any specific areas you'd like to focus on?"
                   rows={4}
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#A78BFA] focus:border-transparent transition-all resize-none"
