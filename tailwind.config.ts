@@ -11,6 +11,7 @@ const config: Config = {
       colors: {
         fontFamily: {
            montserrat: ['var(--font-montserrat)', 'sans-serif'],
+           changaOne: ['var(--font-changa-one)', 'cursive'],
         },
         coral: 'hsl(12 85% 65%)',
         lavender: 'hsl(260 80% 75%)',

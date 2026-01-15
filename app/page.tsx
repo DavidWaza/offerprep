@@ -1,4 +1,5 @@
 import Hero from "./components/Hero";
+import MissionVision from "./components/MissionVision";
 import PricingPlans from "./components/Pricing";
 import BookingSection from "./components/ReachMe";
 import WhatWeOffer from "./components/WhatWeOffer";
@@ -9,6 +10,7 @@ export default function Home() {
     <div className="bg-zinc-50 font-sans dark:bg-black">
       <Hero />
       <WhoWeServe />
+      <MissionVision />
       <WhatWeOffer />
       <PricingPlans />
       <BookingSection />

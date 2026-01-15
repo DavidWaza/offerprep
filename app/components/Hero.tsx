@@ -1,7 +1,7 @@
 "use client";
+
 import { ArrowRight, Star } from "lucide-react";
 import { Button } from "./ui/Button";
-// import Lottie from "lottie-react";
 
 const Hero = () => {
   const scrollToBooking = () => {
@@ -33,9 +33,7 @@ const Hero = () => {
       <div className="absolute lg:top-20 left-10 w-72 h-72 bg-[#F8D6CD]/40 rounded-full blur-3xl animate-float" />
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#E1D8F2]/40 rounded-full blur-3xl animate-float-delayed" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 bg-[#FEF7F0]/60 rounded-full blur-3xl" />
-      <div className="mx-auto mb-12 w-full max-w-lg md:max-w-2xl">
-        {/* <Lottie animationData={interviewAnimation} loop autoplay /> */}
-      </div>
+
       {/* === CONTENT === */}
       <div className="relative z-10 flex min-h-screen items-center justify-center px-6 mt-10 lg:mt-0">
         <div className="max-w-5xl mx-auto text-center">
@@ -48,10 +46,17 @@ const Hero = () => {
           </div>
 
           {/* Main heading */}
-          <h1 className="text-2xl md:text-6xl lg:text-7xl font-extrabold text-[#14325A] mb-6 uppercase">
+          <h1 className="text-2xl md:text-6xl lg:text-7xl font-extrabold text-[#14325A] mb-6 uppercase leading-tight">
             Master the Interview. <br />
-            <span className="bg-clip-text text-transparent bg-linear-to-r from-[#14325A] to-[#4B6CB7] uppercase">
-              Land the Offer.
+
+            {/* ATTENTION GRABBER */}
+            <span className="relative inline-block uppercase font-black">
+              <span className="bg-clip-text text-transparent bg-linear-to-r from-[#F59E0B] via-[#EF4444] to-[#EC4899] animate-gradient --font-changa-one">
+                Land the Offer.
+              </span>
+
+              {/* underline accent */}
+              <span className="absolute -bottom-2 left-0 w-full h-1 bg-[#F59E0B]/80 rounded-full animate-pulse" />
             </span>
           </h1>
 
@@ -67,6 +72,7 @@ const Hero = () => {
               Book a Session
               <ArrowRight className="w-5 h-5" />
             </Button>
+
             <Button variant="heroOutline" size="xl" onClick={scrollToServices}>
               View Our Services
             </Button>
@@ -80,7 +86,6 @@ const Hero = () => {
           <path
             d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H0Z"
             fill="#FEF7F0"
-
           />
         </svg>
       </div>

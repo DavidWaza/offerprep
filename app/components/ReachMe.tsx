@@ -12,11 +12,21 @@ const BookingSection = () => {
     package: "",
     jobDescription: "",
     goals: "",
+    attachments: [] as File[],
   });
 
   const handleSubmit = () => {
     console.log("Form submitted:", formData);
     // Handle form submission logic here
+  };
+
+  const handleFileChange = (files: FileList | null) => {
+    if (!files) return;
+
+    setFormData((prev) => ({
+      ...prev,
+      attachments: Array.from(files),
+    }));
   };
 
   const handleChange = (field: string, value: string) => {
@@ -102,7 +112,11 @@ const BookingSection = () => {
               {/* DISCLAIMER */}
               <div className="py-3">
                 <div className="flex items-center gap-1 py-2">
-                  <OctagonAlert fontWeight={800} size={27}className="text-amber-700"/>
+                  <OctagonAlert
+                    fontWeight={800}
+                    size={27}
+                    className="text-amber-700"
+                  />
                   <h2 className="text-2xl font-extrabold uppercase text-gray-700">
                     DISCLAIMER
                   </h2>
@@ -227,6 +241,41 @@ const BookingSection = () => {
                   rows={4}
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#A78BFA] focus:border-transparent transition-all resize-none"
                 />
+              </div>
+
+              {/* CV / Supporting Materials */}
+              <div>
+                <label className="block text-sm font-semibold text-[#14325A] mb-2">
+                  Upload CV or Supporting Documents
+                </label>
+
+                <input
+                  type="file"
+                  multiple
+                  accept=".pdf,.doc,.docx"
+                  onChange={(e) => handleFileChange(e.target.files)}
+                  className="w-full px-4 py-3 rounded-xl border border-dashed border-gray-300 
+               bg-gray-50 text-sm text-gray-600
+               focus:outline-none focus:ring-2 focus:ring-[#A78BFA] 
+               focus:border-transparent transition-all cursor-pointer"
+                />
+
+                <p className="mt-2 text-xs text-gray-500">
+                  Accepted formats: PDF, DOC, DOCX. You may upload your CV,
+                  portfolio, or any other relevant material.
+                </p>
+
+                {/* Optional preview */}
+                {formData.attachments.length > 0 && (
+                  <ul className="mt-3 space-y-1 text-sm text-gray-700">
+                    {formData.attachments.map((file, index) => (
+                      <li key={index} className="flex items-center gap-2">
+                        <span className="w-2 h-2 bg-[#A78BFA] rounded-full" />
+                        {file.name}
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
 
               {/* Submit Button */}

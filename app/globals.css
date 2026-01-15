@@ -135,3 +135,19 @@
 .animate-float       { animation: float 7s ease-in-out infinite; }
 .animate-float-slow  { animation: float-slow 12s ease-in-out infinite; }
 
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient 4s ease infinite;
+}
