@@ -18,8 +18,6 @@ const BookingForm = () => {
   const [isDirty, setIsDirty] = useState(false);
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
 
-  
-
   const handleSubmit = async () => {
     setSubmitting(true);
     setResultMessage(null);
@@ -48,7 +46,9 @@ const BookingForm = () => {
         `Please complete required fields` +
         (errors.email ? `: ${errors.email}` : "");
       setResultMessage(msg);
-      toast.error(msg);
+      toast.error(msg, {
+        position: "top-right",
+      });
       setSubmitting(false);
       return;
     }
@@ -93,52 +93,61 @@ const BookingForm = () => {
         const err = await res.json().catch(() => null);
         const msg = `Failed to submit request${err?.error ? `: ${err.error}` : ""}`;
         setResultMessage(msg);
-        toast.error(msg);
+        toast.error(msg, {
+          position: "top-right",
+        });
       } else {
-            // Read response body — it may include a redirect/payment link (seelarLink)
-            const body = await res.json().catch(() => null);
-            const successMsg = "Request submitted — we'll be in touch shortly.";
-            setResultMessage(successMsg);
-            toast.success(successMsg);
+        // Read response body — it may include a redirect/payment link (seelarLink)
+        const body = await res.json().catch(() => null);
+        const successMsg = "Request submitted — we'll be in touch shortly.";
+        setResultMessage(successMsg);
+        toast.success(successMsg, {
+          position: "top-right",
+        });
 
-            // If the API returned a seelar/redirect link, open it in a new tab
-            const defaultLink = "https://selar.com/m/offerprep";
-            const link = body?.seelarLink || body?.redirectUrl || body?.url || defaultLink;
-            if (link && typeof window !== "undefined") {
-              const isDefault = link === defaultLink;
-              try {
-                if (isDefault) {
-                  // notify user then wait ~5s before redirecting to the default purchase link (same tab)
-                  toast("Redirecting to purchase page in 5 seconds...");
-                  await new Promise((res) => setTimeout(res, 5000));
-                  window.location.href = link;
-                } else {
-                  // open non-default (server-provided) links in a new tab
-                  window.open(link, "_blank");
-                }
-              } catch (err) {
-                console.warn("Failed to open link:", err);
-                // fallback: navigate in same tab
-                window.location.href = link;
-              }
+        // If the API returned a seelar/redirect link, open it in a new tab
+        const defaultLink = "https://selar.com/m/offerprep";
+        const link =
+          body?.seelarLink || body?.redirectUrl || body?.url || defaultLink;
+        if (link && typeof window !== "undefined") {
+          const isDefault = link === defaultLink;
+          try {
+            if (isDefault) {
+              // notify user then wait ~5s before redirecting to the default purchase link (same tab)
+              toast("Redirecting to purchase page in 5 seconds...", {
+                position: "top-right",
+              });
+              await new Promise((res) => setTimeout(res, 5000));
+              window.location.href = link;
+            } else {
+              // open non-default (server-provided) links in a new tab
+              window.open(link, "_blank");
             }
+          } catch (err) {
+            console.warn("Failed to open link:", err);
+            // fallback: navigate in same tab
+            window.location.href = link;
+          }
+        }
 
-            setFormData({
-              fullName: "",
-              email: "",
-              jobrole: "",
-              company: "",
-              jobDescription: "",
-              goals: "",
-              attachments: [],
-            });
-            setIsDirty(false);
-            setFieldErrors({});
+        setFormData({
+          fullName: "",
+          email: "",
+          jobrole: "",
+          company: "",
+          jobDescription: "",
+          goals: "",
+          attachments: [],
+        });
+        setIsDirty(false);
+        setFieldErrors({});
       }
     } catch (e) {
       const msg = `Error submitting request: ${String(e)}`;
       setResultMessage(msg);
-      toast.error(msg);
+      toast.error(msg, {
+        position: "top-right",
+      });
     } finally {
       setSubmitting(false);
     }

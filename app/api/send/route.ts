@@ -103,7 +103,6 @@ export async function POST(request: Request) {
     const email = fields.email || "";
     const jobrole = fields.jobrole || "";
     const company = fields.company || "";
-    const pkg = fields.package || "";
     const jobDescription = fields.jobDescription || "";
     const goals = fields.goals || "";
 
@@ -129,7 +128,6 @@ export async function POST(request: Request) {
       <p><strong>Email:</strong> ${String(email)}</p>
       <p><strong>Role:</strong> ${String(jobrole)}</p>
       <p><strong>Company:</strong> ${String(company)}</p>
-      <p><strong>Package:</strong> ${String(pkg)}</p>
       <p><strong>Job description:</strong> ${String(jobDescription)}</p>
       <p><strong>Goals:</strong> ${String(goals)}</p>
       <h3>Attachments</h3>
@@ -138,7 +136,7 @@ export async function POST(request: Request) {
     `;
 
     // Build a plaintext alternative
-    const text = `New booking request\nName: ${fullName}\nEmail: ${email}\nRole: ${jobrole}\nCompany: ${company}\nPackage: ${pkg}\nJob description: ${jobDescription}\nGoals: ${goals}\nAttachments: ${attachments.map((a) => a.filename).join(", ")}`;
+    const text = `New booking request\nName: ${fullName}\nEmail: ${email}\nRole: ${jobrole}\nCompany: ${company}\nJob description: ${jobDescription}\nGoals: ${goals}\nAttachments: ${attachments.map((a) => a.filename).join(", ")}`;
 
     const sendPayload = {
       from: "OfferPrep <onboarding@resend.dev>",
