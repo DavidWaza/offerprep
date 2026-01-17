@@ -1,41 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
-import { Calendar, Clock, OctagonAlert, RotateCcw, Send } from "lucide-react";
+import React from "react";
+import { Calendar, Clock, OctagonAlert, RotateCcw } from "lucide-react";
+import BookingForm from "./BookingForm";
 
 const BookingSection = () => {
-  const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    jobrole: "",
-    company: "",
-    package: "",
-    jobDescription: "",
-    goals: "",
-    attachments: [] as File[],
-  });
-
-  const handleSubmit = () => {
-    console.log("Form submitted:", formData);
-    // Handle form submission logic here
-  };
-
-  const handleFileChange = (files: FileList | null) => {
-    if (!files) return;
-
-    setFormData((prev) => ({
-      ...prev,
-      attachments: Array.from(files),
-    }));
-  };
-
-  const handleChange = (field: string, value: string) => {
-    setFormData({
-      ...formData,
-      [field]: value,
-    });
-  };
-
   return (
     <section className="relative overflow-hidden py-20 px-6" id="booking">
       {/* Background */}
@@ -131,163 +100,20 @@ const BookingSection = () => {
                   If you’re practicing interviews in general, you can leave
                   those fields blank.
                 </h3>
+                <br />
+                <h3 className="font-semibold text-gray-700">
+                  Our coaching ensures you are better prepared and more
+                  confident, but hiring decisions remain at the discretion of
+                  the employer. A successful outcome requires a blend of strong
+                  interview performance and the necessary technical expertise
+                  for the role.
+                </h3>
               </div>
             </div>
           </div>
 
           {/* Right Column - Form */}
-          <div className="bg-white rounded-3xl shadow-2xl p-8 border border-gray-100">
-            <h3 className="text-2xl font-bold text-[#14325A] mb-6">
-              Book Your Session
-            </h3>
-
-            <div className="space-y-5">
-              {/* Full Name */}
-              <div>
-                <label className="block text-sm font-semibold text-[#14325A] mb-2">
-                  Full Name
-                </label>
-                <input
-                  type="text"
-                  value={formData.fullName}
-                  onChange={(e) => handleChange("fullName", e.target.value)}
-                  placeholder="John Doe"
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#A78BFA] focus:border-transparent transition-all"
-                />
-              </div>
-
-              {/* Email Address */}
-              <div>
-                <label className="block text-sm font-semibold text-[#14325A] mb-2">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  value={formData.email}
-                  onChange={(e) => handleChange("email", e.target.value)}
-                  placeholder="john@example.com"
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#A78BFA] focus:border-transparent transition-all"
-                />
-              </div>
-
-              {/* Job Role */}
-              <div>
-                <label className="block text-sm font-semibold text-[#14325A] mb-2">
-                  Job Role
-                </label>
-                <input
-                  type="tel"
-                  value={formData.jobrole}
-                  onChange={(e) => handleChange("jobrole", e.target.value)}
-                  placeholder="Software Developer"
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#A78BFA] focus:border-transparent transition-all"
-                />
-              </div>
-              {/* Company */}
-              <div>
-                <label className="block text-sm font-semibold text-[#14325A] mb-2">
-                  Company
-                </label>
-                <input
-                  type="tel"
-                  value={formData.company}
-                  onChange={(e) => handleChange("company", e.target.value)}
-                  placeholder="Anthropic"
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#A78BFA] focus:border-transparent transition-all"
-                />
-              </div>
-
-              {/* Select Package */}
-              <div>
-                <label className="block text-sm font-semibold text-[#14325A] mb-2">
-                  Select Package
-                </label>
-                <select
-                  value={formData.package}
-                  onChange={(e) => handleChange("package", e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#A78BFA] focus:border-transparent transition-all appearance-none bg-white"
-                >
-                  <option value="">Choose a package...</option>
-                  <option value="starter">Starter Plan</option>
-                  <option value="pro">Pro Plan</option>
-                  <option value="premium">Premium Plan</option>
-                </select>
-              </div>
-
-              {/* Job Desvription */}
-              <div>
-                <label className="block text-sm font-semibold text-[#14325A] mb-2">
-                  Job Description (optional)
-                </label>
-                <textarea
-                  value={formData.jobDescription}
-                  onChange={(e) =>
-                    handleChange("jobDescription", e.target.value)
-                  }
-                  placeholder="Add the company's job description you are interviewing for"
-                  rows={4}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#A78BFA] focus:border-transparent transition-all resize-none"
-                />
-              </div>
-              {/* Goals */}
-              <div>
-                <label className="block text-sm font-semibold text-[#14325A] mb-2">
-                  What is your current goal? (optional)
-                </label>
-                <textarea
-                  value={formData.goals}
-                  onChange={(e) => handleChange("goals", e.target.value)}
-                  placeholder="What role are you interviewing for? Any specific areas you'd like to focus on?"
-                  rows={4}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#A78BFA] focus:border-transparent transition-all resize-none"
-                />
-              </div>
-
-              {/* CV / Supporting Materials */}
-              <div>
-                <label className="block text-sm font-semibold text-[#14325A] mb-2">
-                  Upload CV or Supporting Documents
-                </label>
-
-                <input
-                  type="file"
-                  multiple
-                  accept=".pdf,.doc,.docx"
-                  onChange={(e) => handleFileChange(e.target.files)}
-                  className="w-full px-4 py-3 rounded-xl border border-dashed border-gray-300 
-               bg-gray-50 text-sm text-gray-600
-               focus:outline-none focus:ring-2 focus:ring-[#A78BFA] 
-               focus:border-transparent transition-all cursor-pointer"
-                />
-
-                <p className="mt-2 text-xs text-gray-500">
-                  Accepted formats: PDF, DOC, DOCX. You may upload your CV,
-                  portfolio, or any other relevant material.
-                </p>
-
-                {/* Optional preview */}
-                {formData.attachments.length > 0 && (
-                  <ul className="mt-3 space-y-1 text-sm text-gray-700">
-                    {formData.attachments.map((file, index) => (
-                      <li key={index} className="flex items-center gap-2">
-                        <span className="w-2 h-2 bg-[#A78BFA] rounded-full" />
-                        {file.name}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-
-              {/* Submit Button */}
-              <button
-                onClick={handleSubmit}
-                className="w-full bg-[#A78BFA] text-white font-semibold py-4 px-6 rounded-xl hover:bg-[#8B5CF6] transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
-              >
-                Submit Request
-                <Send className="w-5 h-5" />
-              </button>
-            </div>
-          </div>
+          <BookingForm />
         </div>
       </div>
     </section>
