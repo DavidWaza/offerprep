@@ -232,7 +232,7 @@ const BookingForm = () => {
               Job Role
             </label>
             <input
-              type="tel"
+              type="text"
               value={formData.jobrole}
               onChange={(e) => handleChange("jobrole", e.target.value)}
               placeholder="Software Developer"
@@ -248,7 +248,7 @@ const BookingForm = () => {
               Company
             </label>
             <input
-              type="tel"
+              type="text"
               value={formData.company}
               onChange={(e) => handleChange("company", e.target.value)}
               placeholder="Anthropic"
