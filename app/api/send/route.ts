@@ -147,8 +147,6 @@ export async function POST(request: Request) {
     } as Record<string, unknown>;
 
     if (attachments.length > 0) {
-      // Resend expects each attachment to include either `content` (base64) or `path`.
-      // Map our internal `data` field to `content` to satisfy the API.
       sendPayload.attachments = attachments.map((a) => ({
         filename: a.filename,
         content: a.data,
