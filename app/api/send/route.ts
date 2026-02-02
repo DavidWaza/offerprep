@@ -140,13 +140,15 @@ export async function POST(request: Request) {
 
     const sendPayload = {
       from: "OfferPrep <onboarding@resend.dev>",
-      to: ["offerprepjobs@gmail.com"],
+      to: ["info@offerprep.net"],
       subject: `New booking: ${fullName || email}`,
       html,
       text,
     } as Record<string, unknown>;
 
     if (attachments.length > 0) {
+      // Resend expects each attachment to include either `content` (base64) or `path`.
+      // Map our internal `data` field to `content` to satisfy the API.
       sendPayload.attachments = attachments.map((a) => ({
         filename: a.filename,
         content: a.data,
