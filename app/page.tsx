@@ -2,6 +2,7 @@ import Hero from "./components/Hero";
 import MissionVision from "./components/MissionVision";
 import PricingPlans from "./components/Pricing";
 import BookingSection from "./components/ReachMe";
+import Testimonials from "./components/Testimonial";
 import WhatWeOffer from "./components/WhatWeOffer";
 import WhoWeServe from "./components/WhoWeServe";
 
@@ -14,6 +15,7 @@ export default function Home() {
       <WhatWeOffer />
       <PricingPlans />
       <BookingSection />
+      <Testimonials />
     </div>
   );
 }
