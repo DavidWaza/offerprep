@@ -3,6 +3,7 @@ import { Inter, Montserrat, Changa_One } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
 import LoadingOverlay from "./components/LoadingOverlay";
+import Footer from "./components/Footer";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -33,10 +34,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${montserrat.className} ${changaOne.variable} antialiased`}>
+      <body
+        className={`${inter.variable} ${montserrat.className} ${changaOne.variable} antialiased`}
+      >
         <Header />
         <LoadingOverlay />
         {children}
+        <Footer />
       </body>
     </html>
   );
