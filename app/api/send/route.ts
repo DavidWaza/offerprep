@@ -2,8 +2,6 @@ import fs from "fs";
 import path from "path";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 // Minimal file-like shape from FormData's File/Blob in Node
 type FileLike = {
   name?: string;
@@ -25,6 +23,8 @@ async function fileToAttachment(file: FileLike) {
 }
 
 export async function POST(request: Request) {
+  const resend = new Resend(process.env.RESEND_API_KEY);
+
   try {
     if (!process.env.RESEND_API_KEY) {
       return Response.json(
@@ -140,7 +140,7 @@ export async function POST(request: Request) {
 
     const sendPayload = {
       from: "OfferPrep <onboarding@resend.dev>",
-      to: ["info@offerprep.net"],
+      to: ["offerprepjobs@gmail.com"],
       subject: `New booking: ${fullName || email}`,
       html,
       text,
@@ -164,7 +164,9 @@ export async function POST(request: Request) {
       console.error("Resend SDK threw an error:", err);
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const e: any = err;
-      const details: Record<string, unknown> = { message: String(e?.message ?? e) };
+      const details: Record<string, unknown> = {
+        message: String(e?.message ?? e),
+      };
       if (e?.response) {
         details.responseStatus = e.response.status;
         try {

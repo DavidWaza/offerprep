@@ -1,0 +1,25 @@
+
+C:\Users\Emediong - FD\Desktop\Personal-project\offerprep\app\api\send\route.ts
+  172:18  warning  '_' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Emediong - FD\Desktop\Personal-project\offerprep\app\components\BookingForm.tsx
+  17:10  warning  'resultMessage' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Emediong - FD\Desktop\Personal-project\offerprep\app\components\Footer.tsx
+  2:8  warning  'Image' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Emediong - FD\Desktop\Personal-project\offerprep\app\components\Header.tsx
+  18:8  warning  'scrollToBooking' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  22:9  warning  'scrollToServices' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Emediong - FD\Desktop\Personal-project\offerprep\app\components\Pricing.tsx
+  4:17  warning  'DollarSign' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Emediong - FD\Desktop\Personal-project\offerprep\app\components\WhoWeServe.tsx
+  28:7  warning  'cardVariants' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Emediong - FD\Desktop\Personal-project\offerprep\app\layout.tsx
+  6:19  warning  'toast' is defined but never used  @typescript-eslint/no-unused-vars
+
+✖ 8 problems (0 errors, 8 warnings)
+
